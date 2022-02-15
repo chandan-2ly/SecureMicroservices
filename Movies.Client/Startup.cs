@@ -64,9 +64,9 @@ namespace Movies.Client
                 });
 
             services.AddTransient<AuthenticationDelegatingHandler>();
-            services.AddHttpClient("MovieAPIClient", client =>
+            services.AddHttpClient("ApiGateway", client =>
             {
-                client.BaseAddress = new System.Uri("https://localhost:5001/");
+                client.BaseAddress = new System.Uri("https://localhost:5010/");
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
             }).AddHttpMessageHandler<AuthenticationDelegatingHandler>();

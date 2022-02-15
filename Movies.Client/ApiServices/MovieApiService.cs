@@ -73,8 +73,8 @@ namespace Movies.Client.ApiServices
 
         public async Task<IEnumerable<Movie>> GetMovies()
         {
-            var httpClient = _httpClientFactory.CreateClient("MovieAPIClient");
-            var request = new HttpRequestMessage(HttpMethod.Get, "/api/movies/");
+            var httpClient = _httpClientFactory.CreateClient("ApiGateway");
+            var request = new HttpRequestMessage(HttpMethod.Get, "/movies");
 
             var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
